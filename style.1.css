@@ -1,0 +1,83 @@
+/* Grundinställningar */
+body {
+    font-family: Arial, sans-serif;
+    background-color: #edd6d6;
+    color: #1c1b1b;
+    margin: 20px;
+
+}
+
+/* Rubriker */
+h1, h2 {
+    color: #012813;
+    text-align: center;
+}
+
+h3#greeting {
+    color: #012813;
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+/* Länk-styling */
+a {
+    color: #400204;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+a:hover {
+    color: #008cff;
+    text-decoration: underline;
+}
+
+/* Flexcontainer för två kolumner */
+.main-content {
+    display: flex;
+    gap: 20px;
+    align-items: flex-start;
+    flex-wrap: wrap;
+
+    max-width: 1000px;   /* bestämmer hur bred hela flexcontainer får vara */
+    margin: 0 auto;       /* centrerar hela flexcontainer på sidan */
+    padding: 0 20px;      /* lite luft från kanterna */
+}
+
+/* Vänster: kontaktinfo + sticky bild */
+.contact {
+    flex: 1;
+    text-align: left;
+    margin-left: 50px;   /* flyttar hela innehållet lite inåt från vänsterkanten */
+ position: sticky;
+    top: 20px;      /* följer med vid scroll */
+}
+
+.contact img {
+    width: 100%;
+    max-width: 200px;
+    border-radius: 10px;
+    margin-top: 20px;
+    position: sticky;
+    top: 20px;      /* följer med vid scroll */
+    margin-left: 50px;   /* flyttar hela innehållet lite inåt från vänsterkanten */
+
+}
+
+/* Höger: text om dig själv */
+.about {
+    flex: 2;
+    text-align: left;
+    background-color: #f8eaea;
+    margin-top: 20px;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+    line-height: 1.6;
+
+    max-width: 1000px;   /* gör att boxen inte blir för bred */
+}
+
+/* Allmän text */
+p {
+    line-height: 1.6;
+}
