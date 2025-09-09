@@ -56,7 +56,6 @@ a:hover {
     max-width: 200px;
     border-radius: 10px;
     margin-top: 20px;
-    position: sticky;
     top: 20px;      /* följer med vid scroll */
     margin-left: 50px;   /* flyttar hela innehållet lite inåt från vänsterkanten */
 
@@ -80,3 +79,4 @@ a:hover {
 p {
     line-height: 1.6;
 }
+
