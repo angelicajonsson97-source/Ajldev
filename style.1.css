@@ -1,7 +1,7 @@
 /* Grundinställningar */
 body {
     font-family: Arial, sans-serif;
-    background-color: #edd6d6;
+    background-color: #e9dcc9;
     color: #1c1b1b;
     margin: 20px;
 
@@ -9,25 +9,25 @@ body {
 
 /* Rubriker */
 h1, h2 {
-    color: #012813;
+    color: #1b3b2f;
     text-align: center;
 }
 
 h3#greeting {
-    color: #012813;
+    color: #1b3b2f;
     text-align: center;
     margin-bottom: 20px;
 }
 
 /* Länk-styling */
 a {
-    color: #400204;
+    color: #5c4033;
     text-decoration: none;
     font-weight: bold;
 }
 
 a:hover {
-    color: #008cff;
+    color: #3e5c4b;
     text-decoration: underline;
 }
 
@@ -60,14 +60,14 @@ a:hover {
     position: sticky;
     top: 20px;      /* följer med vid scroll */
     margin-left: 50px;   /* flyttar hela innehållet lite inåt från vänsterkanten */
-
+    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
 }
 
 /* Höger: text om dig själv */
 .about {
     flex: 2;
     text-align: left;
-    background-color: #f8eaea;
+    background-color: #f6efe7;
     margin-top: 20px;
     padding: 20px;
     border-radius: 10px;
@@ -80,4 +80,24 @@ a:hover {
 /* Allmän text */
 p {
     line-height: 1.6;
+}
+
+/*Knappar */
+.back-button {
+  background-color: #f6efe7;
+  color: #5c4033;
+  padding: 10px 20px;
+  border-radius: 5px;
+  font-size: 16px;
+  text-decoration: none;
+  display: inline-block;
+  font-weight: bold;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.08);
+  transition: 0.3s ease;
+}
+
+.back-button:hover {
+  background-color: #1b3b2f;
+  color: #5c4033;
+  text-decoration: none;
 }
