@@ -1,7 +1,7 @@
 /* Grundinställningar */
 body {
     font-family: Arial, sans-serif;
-    background-color: #edd6d6;
+    background-color: #e9dcc9;
     color: #1c1b1b;
     margin: 20px;
 
@@ -9,25 +9,25 @@ body {
 
 /* Rubriker */
 h1, h2 {
-    color: #012813;
+    color: #1b3b2f;
     text-align: center;
 }
 
 h3#greeting {
-    color: #012813;
+    color: #1b3b2f;
     text-align: center;
     margin-bottom: 20px;
 }
 
 /* Länk-styling */
 a {
-    color: #400204;
+    color: #5c4033;
     text-decoration: none;
     font-weight: bold;
 }
 
 a:hover {
-    color: #008cff;
+    color: #3e5c4b;
     text-decoration: underline;
 }
 
@@ -43,7 +43,7 @@ a:hover {
     padding: 0 20px;      /* lite luft från kanterna */
 }
 
-/* Vänster: kontaktinfo */
+/* Vänster: kontaktinfo + sticky bild */
 .contact {
     flex: 1;
     text-align: left;
@@ -57,14 +57,14 @@ a:hover {
     border-radius: 10px;
     margin-top: 20px;
     margin-left: 50px;   /* flyttar hela innehållet lite inåt från vänsterkanten */
-
+    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
 }
 
 /* Höger: text om dig själv */
 .about {
     flex: 2;
     text-align: left;
-    background-color: #f8eaea;
+    background-color: #f6efe7;
     margin-top: 20px;
     padding: 20px;
     border-radius: 10px;
@@ -78,5 +78,3 @@ a:hover {
 p {
     line-height: 1.6;
 }
-
-
