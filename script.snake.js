@@ -1,7 +1,7 @@
 const canvas = document.getElementById("snake-canvas");
 const ctx = canvas.getContext("2d");
-canvas.setAttribute("tabindex", "0"); // Gör canvas fokuserbar
-canvas.focus(); // Sätter fokus direkt
+canvas.setAttribute("tabindex", "0");
+canvas.focus();
 
 const box = 20;
 let snake = [];
@@ -10,38 +10,35 @@ let food;
 let score = 0;
 let game;
 
-//  Tangentstyrning (desktop)
+// Tangentstyrning (desktop)
 document.addEventListener("keydown", changeDirection);
 
-//  Starta eller starta om spelet
+// Starta eller starta om spelet
 document.getElementById("start-snake").addEventListener("click", () => {
   clearInterval(game);
   resetGame();
-  game = setInterval(draw, 150); // Ger spelaren lite mer reaktionstid
+  game = setInterval(draw, 150);
   document.getElementById("start-snake").textContent = "Spela igen";
 });
 
-//  Återställ spelet
+// Återställ spelet
 function resetGame() {
-  snake = [{ x: 7 * box, y: 7 * box }]; // Starta längre in från kanten
+  snake = [{ x: 7 * box, y: 7 * box }];
   direction = "RIGHT";
   score = 0;
   generateFood();
   updateScore();
 }
 
-//  Rita spelplanen varje frame
+// Rita spelplanen varje frame
 function draw() {
-  // Bakgrund
   ctx.fillStyle = "#f6efe7";
   ctx.fillRect(0, 0, canvas.width, canvas.height);
 
-  // Ram runt spelplanen
   ctx.strokeStyle = "#1b3b2f";
   ctx.lineWidth = 2;
   ctx.strokeRect(0, 0, canvas.width, canvas.height);
 
-  // Rita ormen
   for (let i = 0; i < snake.length; i++) {
     ctx.fillStyle = i === 0 ? "#5c4033" : "#3e5c4b";
     ctx.fillRect(snake[i].x, snake[i].y, box, box);
@@ -49,13 +46,11 @@ function draw() {
     ctx.strokeRect(snake[i].x, snake[i].y, box, box);
   }
 
-  // Rita maten
   ctx.fillStyle = "#1b3b2f";
   ctx.beginPath();
   ctx.arc(food.x + box / 2, food.y + box / 2, box / 2.5, 0, Math.PI * 2);
   ctx.fill();
 
-  // Flytta ormens huvud
   let headX = snake[0].x;
   let headY = snake[0].y;
 
@@ -66,7 +61,6 @@ function draw() {
 
   let newHead = { x: headX, y: headY };
 
-  // Kollision med vägg eller kropp
   if (
     headX < 0 || headX >= canvas.width ||
     headY < 0 || headY >= canvas.height ||
@@ -77,7 +71,6 @@ function draw() {
     return;
   }
 
-  // Kolla om ormen äter
   if (headX === food.x && headY === food.y) {
     generateFood();
     score++;
@@ -89,17 +82,19 @@ function draw() {
   snake.unshift(newHead);
 }
 
-//  Tangentstyrning
+// Tangentstyrning med scrollskydd
 function changeDirection(event) {
-  event.preventDefault(); // Stoppar scroll
-
-  if (event.key === "ArrowLeft" && direction !== "RIGHT") direction = "LEFT";
-  if (event.key === "ArrowUp" && direction !== "DOWN") direction = "UP";
-  if (event.key === "ArrowRight" && direction !== "LEFT") direction = "RIGHT";
-  if (event.key === "ArrowDown" && direction !== "UP") direction = "DOWN";
+  const keys = ["ArrowLeft", "ArrowUp", "ArrowRight", "ArrowDown"];
+  if (keys.includes(event.key)) {
+    event.preventDefault();
+    if (event.key === "ArrowLeft" && direction !== "RIGHT") direction = "LEFT";
+    if (event.key === "ArrowUp" && direction !== "DOWN") direction = "UP";
+    if (event.key === "ArrowRight" && direction !== "LEFT") direction = "RIGHT";
+    if (event.key === "ArrowDown" && direction !== "UP") direction = "DOWN";
+  }
 }
 
-//  Touchstyrning (mobilknappar)
+// Touchstyrning (mobilknappar)
 function setDirection(dir) {
   if (dir === "LEFT" && direction !== "RIGHT") direction = "LEFT";
   if (dir === "UP" && direction !== "DOWN") direction = "UP";
@@ -107,7 +102,7 @@ function setDirection(dir) {
   if (dir === "DOWN" && direction !== "UP") direction = "DOWN";
 }
 
-//  Generera ny mat
+// Generera ny mat
 function generateFood() {
   food = {
     x: Math.floor(Math.random() * (canvas.width / box)) * box,
