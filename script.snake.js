@@ -122,3 +122,18 @@ function updateScore() {
     scoreDisplay.textContent = "Poäng: " + score;
   }
 }
+document.addEventListener("DOMContentLoaded", () => {
+  // Direkt touchrespons utan fördröjning
+  const buttons = document.querySelectorAll("#touch-controls button");
+  buttons.forEach(button => {
+    button.addEventListener("touchstart", (event) => {
+      event.preventDefault(); // Stoppar dubbeltryck/zoom
+      const dir = button.textContent.includes("⬆️") ? "UP" :
+                  button.textContent.includes("⬇️") ? "DOWN" :
+                  button.textContent.includes("⬅️") ? "LEFT" : "RIGHT";
+      if (typeof setDirection === "function") {
+        setDirection(dir);
+      }
+    });
+  });
+});
