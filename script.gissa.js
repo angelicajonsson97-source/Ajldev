@@ -1,4 +1,3 @@
-// 🎯 Variabler för spelet
 let secretNumber;
 let maxNumber;
 let attempts = 0;
@@ -6,7 +5,6 @@ let timerInterval;
 let seconds = 0;
 let gameActive = false;
 
-// 🔎 Hämta element från HTML
 const difficultySelect = document.getElementById("difficulty");
 const startButton = document.getElementById("start-game");
 const gameArea = document.getElementById("game-area");
@@ -17,19 +15,20 @@ const submitGuess = document.getElementById("submit-guess");
 const attemptsDisplay = document.getElementById("attempts");
 const guessHistory = document.getElementById("guess-history");
 
-// ⌨️ Enter för att gissa
+// Enter för att gissa
 guessInput.addEventListener("keydown", (event) => {
   if (event.key === "Enter") {
+    event.preventDefault();
     submitGuess.click();
   }
 });
 
-// 🕹️ Starta eller starta om spelet
+// Starta eller starta om spelet
 startButton.addEventListener("click", () => {
   startGame();
 });
 
-// 🚀 Funktion för att starta spelet
+// Starta spelet
 function startGame() {
   maxNumber = parseInt(difficultySelect.value);
   secretNumber = Math.floor(Math.random() * maxNumber) + 1;
@@ -37,27 +36,25 @@ function startGame() {
   seconds = 0;
   gameActive = true;
 
-  // Återställ UI
   guessHistory.innerHTML = "";
   feedback.textContent = "Gissa ett nummer!";
   attemptsDisplay.textContent = "Försök: 0";
   guessInput.value = "";
   guessInput.disabled = false;
   submitGuess.disabled = false;
-  startButton.textContent = "Starta spel"; // Återställ knapptext om den ändrats
-
-  // Visa spelområdet
+  startButton.textContent = "Starta spel";
   gameArea.style.display = "block";
 
-  // Starta timer
   clearInterval(timerInterval);
   timerInterval = setInterval(() => {
     seconds++;
     timerDisplay.textContent = `Tid: ${seconds} sek`;
   }, 1000);
+
+  guessInput.focus();
 }
 
-// 🎯 Gissningslogik
+// Gissningslogik
 submitGuess.addEventListener("click", () => {
   if (!gameActive) return;
 
@@ -88,7 +85,7 @@ submitGuess.addEventListener("click", () => {
   guessInput.focus();
 });
 
-// 🛑 Avsluta spelet
+// Avsluta spelet
 function endGame() {
   clearInterval(timerInterval);
   gameActive = false;
