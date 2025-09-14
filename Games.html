@@ -9,7 +9,7 @@
 
 <body>
   <header>
-    <h1>🎮 Min Spelportal</h1>
+    <h1>Spelportal</h1>
   </header>
 
   <!-- Navigationsmeny -->
@@ -26,7 +26,7 @@
   <hr>
 
   <section id="game-portal">
-    <!-- 🟦 Spel 1 – Gissa Numret -->
+    <!-- Spel 1 – Gissa Numret -->
     <div class="game-column">
       <div class="game-box" id="gissa-numret">
         <h2>Gissa Numret</h2>
@@ -51,14 +51,14 @@
       </div>
     </div>
 
-    <!-- 🟨 Spel 2 – Snake -->
+    <!-- Spel 2 – Snake -->
     <div class="game-column">
       <div class="game-box" id="snake-spelet">
         <h2>Snake</h2>
         <canvas id="snake-canvas" width="300" height="300" tabindex="0" autofocus></canvas>
         <button id="start-snake">Starta Snake</button>
         <p id="snake-score">Poäng: 0</p>
-        <p>🕹️ Använd piltangenterna eller tryck på knapparna nedan!</p>
+        <p id="snake-highscore">Highscore: 0</p>
 
         <!-- Touch-styrning för mobil -->
         <div id="touch-controls">
@@ -72,19 +72,56 @@
       </div>
     </div>
 
-    <!-- 🟥 Spel 3 – Placeholder -->
+<!-- Spel 3 – Färgklickaren -->
+<div class="game-column">
+  <div class="game-box" id="fargklickaren">
+    <h2>Färgklickaren</h2>
+    <p id="color-instruction">Klicka på: <span id="target-color">?</span></p>
+    <div id="color-buttons">
+  <button class="color-btn" data-color="röd" style="background-color: red;"></button>
+  <button class="color-btn" data-color="grön" style="background-color: green;"></button>
+  <button class="color-btn" data-color="blå" style="background-color: blue;"></button>
+  <button class="color-btn" data-color="gul" style="background-color: yellow;"></button>
+</div>
+    <p id="color-feedback">Tryck på rätt färg!</p>
+    <p id="color-score">Poäng: 0</p>
+    <button id="start-color-game">Starta</button>
+  </div>
+</div>
+
+
+   <!-- Spel 4 – Placeholder -->
     <div class="game-column">
-      <div class="game-box" id="spel-3">
-        <h2>Spel 3</h2>
-        <p>Denna ruta är redo för ett nytt spel. Vad vill du lägga till här?</p>
+      <div class="game-box" id="spel-4">
+        <h2>Spel 4</h2>
+        <p>Denna ruta är redo för ett nytt spel.</p>
+      </div>
+    </div>
+  
+   <!-- Spel 5 – Placeholder -->
+    <div class="game-column">
+      <div class="game-box" id="spel-5">
+        <h2>Spel 5</h2>
+        <p>Denna ruta är redo för ett nytt spel.</p>
+      </div>
+    </div>
+ 
+  
+   <!-- Spel 6 – Placeholder -->
+    <div class="game-column">
+      <div class="game-box" id="spel-6">
+        <h2>Spel 6</h2>
+        <p>Denna ruta är redo för ett nytt spel.</p>
       </div>
     </div>
   </section>
+
 
   <!-- JavaScript-filer -->
   <script src="script.gissa.js"></script>
   <script src="script.snake.js"></script>
   <script src="script.meny.js"></script>
+  <script src="script.fargklickaren.js"></script>
 
   <footer>
     <hr>
