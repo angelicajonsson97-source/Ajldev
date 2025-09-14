@@ -8,7 +8,15 @@
 <body>
   <h1>Angelica Jonsson Landström</h1>
   <h2>Fullstack-utvecklare</h2>
-  <a href="index.html" class="back-button">Till startsidan</a>
+  <nav class="navbar">
+  <div class="nav-brand"></div>
+  <button class="hamburger" onclick="toggleMenu()">☰</button>
+  <ul class="nav-links" id="nav-menu">
+    <li><a href="index.html">Startsida</a></li>
+    <li><a href="cv.html">CV</a></li>
+    <li><a href="spelportal.html">Spelportal</a></li>
+  </ul>
+</nav>
   <hr> 
   <div class="main-content">
 
@@ -80,9 +88,8 @@ Jag söker en LIA-plats där jag får växa som utvecklare, bidra med min tidiga
     </p>
   </section>
 
- 
-</body>
-</html>  </div>
+ <script src="script.meny.js"></script>
   <hr>
   <p>&copy; 2025 Angelica Jonsson Landström</p>
-
+</body>
+</html> 
