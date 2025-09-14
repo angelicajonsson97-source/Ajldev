@@ -1,5 +1,8 @@
 const canvas = document.getElementById("snake-canvas");
 const ctx = canvas.getContext("2d");
+canvas.setAttribute("tabindex", "0"); // Gör canvas fokuserbar
+canvas.focus(); // Sätter fokus direkt
+
 const box = 20;
 let snake = [];
 let direction = "RIGHT";
@@ -7,27 +10,27 @@ let food;
 let score = 0;
 let game;
 
-// ⌨️ Tangentstyrning (desktop)
+//  Tangentstyrning (desktop)
 document.addEventListener("keydown", changeDirection);
 
-// 🎮 Starta eller starta om spelet
+//  Starta eller starta om spelet
 document.getElementById("start-snake").addEventListener("click", () => {
   clearInterval(game);
   resetGame();
-  game = setInterval(draw, 100);
+  game = setInterval(draw, 150); // Ger spelaren lite mer reaktionstid
   document.getElementById("start-snake").textContent = "Spela igen";
 });
 
-// 🔄 Återställ spelet
+//  Återställ spelet
 function resetGame() {
-  snake = [{ x: 5 * box, y: 5 * box }];
+  snake = [{ x: 7 * box, y: 7 * box }]; // Starta längre in från kanten
   direction = "RIGHT";
   score = 0;
   generateFood();
   updateScore();
 }
 
-// 🖼️ Rita spelplanen varje frame
+//  Rita spelplanen varje frame
 function draw() {
   // Bakgrund
   ctx.fillStyle = "#f6efe7";
@@ -88,6 +91,8 @@ function draw() {
 
 //  Tangentstyrning
 function changeDirection(event) {
+  event.preventDefault(); // Stoppar scroll
+
   if (event.key === "ArrowLeft" && direction !== "RIGHT") direction = "LEFT";
   if (event.key === "ArrowUp" && direction !== "DOWN") direction = "UP";
   if (event.key === "ArrowRight" && direction !== "LEFT") direction = "RIGHT";
@@ -115,7 +120,7 @@ function collision(head, array) {
   return array.some(segment => segment.x === head.x && segment.y === head.y);
 }
 
-//  Uppdatera poäng
+// Uppdatera poäng
 function updateScore() {
   const scoreDisplay = document.getElementById("snake-score");
   if (scoreDisplay) {
