@@ -6,9 +6,15 @@ canvas.focus();
 const box = 20;
 let snake = [];
 let direction = "RIGHT";
+let nextDirection = "RIGHT";
 let food;
 let score = 0;
+let snakeHighscore = localStorage.getItem("snakeHighscore") || 0;
 let game;
+
+const scoreDisplay = document.getElementById("snake-score");
+const highscoreDisplay = document.getElementById("snake-highscore");
+highscoreDisplay.textContent = "Highscore: " + snakeHighscore;
 
 // Tangentstyrning (desktop)
 document.addEventListener("keydown", changeDirection);
@@ -25,13 +31,17 @@ document.getElementById("start-snake").addEventListener("click", () => {
 function resetGame() {
   snake = [{ x: 7 * box, y: 7 * box }];
   direction = "RIGHT";
+  nextDirection = "RIGHT";
   score = 0;
   generateFood();
   updateScore();
+  canvas.style.backgroundColor = "#f6efe7"; // återställ färg
 }
 
 // Rita spelplanen varje frame
 function draw() {
+  direction = nextDirection;
+
   ctx.fillStyle = "#f6efe7";
   ctx.fillRect(0, 0, canvas.width, canvas.height);
 
@@ -67,7 +77,10 @@ function draw() {
     collision(newHead, snake.slice(1))
   ) {
     clearInterval(game);
-    alert("Game Over! Din poäng: " + score);
+    blinkCanvas();
+    setTimeout(() => {
+      alert("Game Over! Din poäng: " + score);
+    }, 200);
     return;
   }
 
@@ -82,24 +95,32 @@ function draw() {
   snake.unshift(newHead);
 }
 
+// Blinkning vid krock
+function blinkCanvas() {
+  canvas.style.backgroundColor = "#ff4d4d"; // röd blink
+  setTimeout(() => {
+    canvas.style.backgroundColor = "#f6efe7"; // tillbaka till normal
+  }, 150);
+}
+
 // Tangentstyrning med scrollskydd
 function changeDirection(event) {
   const keys = ["ArrowLeft", "ArrowUp", "ArrowRight", "ArrowDown"];
   if (keys.includes(event.key)) {
     event.preventDefault();
-    if (event.key === "ArrowLeft" && direction !== "RIGHT") direction = "LEFT";
-    if (event.key === "ArrowUp" && direction !== "DOWN") direction = "UP";
-    if (event.key === "ArrowRight" && direction !== "LEFT") direction = "RIGHT";
-    if (event.key === "ArrowDown" && direction !== "UP") direction = "DOWN";
+    if (event.key === "ArrowLeft" && direction !== "RIGHT") nextDirection = "LEFT";
+    if (event.key === "ArrowUp" && direction !== "DOWN") nextDirection = "UP";
+    if (event.key === "ArrowRight" && direction !== "LEFT") nextDirection = "RIGHT";
+    if (event.key === "ArrowDown" && direction !== "UP") nextDirection = "DOWN";
   }
 }
 
 // Touchstyrning (mobilknappar)
 function setDirection(dir) {
-  if (dir === "LEFT" && direction !== "RIGHT") direction = "LEFT";
-  if (dir === "UP" && direction !== "DOWN") direction = "UP";
-  if (dir === "RIGHT" && direction !== "LEFT") direction = "RIGHT";
-  if (dir === "DOWN" && direction !== "UP") direction = "DOWN";
+  if (dir === "LEFT" && direction !== "RIGHT") nextDirection = "LEFT";
+  if (dir === "UP" && direction !== "DOWN") nextDirection = "UP";
+  if (dir === "RIGHT" && direction !== "LEFT") nextDirection = "RIGHT";
+  if (dir === "DOWN" && direction !== "UP") nextDirection = "DOWN";
 }
 
 // Generera ny mat
@@ -110,24 +131,28 @@ function generateFood() {
   };
 }
 
-//  Kollision med kroppen
+// Kollision med kroppen
 function collision(head, array) {
   return array.some(segment => segment.x === head.x && segment.y === head.y);
 }
 
-// Uppdatera poäng
+// Uppdatera poäng och highscore
 function updateScore() {
-  const scoreDisplay = document.getElementById("snake-score");
-  if (scoreDisplay) {
-    scoreDisplay.textContent = "Poäng: " + score;
+  scoreDisplay.textContent = "Poäng: " + score;
+
+  if (score > snakeHighscore) {
+    snakeHighscore = score;
+    localStorage.setItem("snakeHighscore", snakeHighscore);
+    highscoreDisplay.textContent = "Highscore: " + snakeHighscore;
   }
 }
+
+// Direkt touchrespons utan fördröjning
 document.addEventListener("DOMContentLoaded", () => {
-  // Direkt touchrespons utan fördröjning
   const buttons = document.querySelectorAll("#touch-controls button");
   buttons.forEach(button => {
     button.addEventListener("touchstart", (event) => {
-      event.preventDefault(); // Stoppar dubbeltryck/zoom
+      event.preventDefault();
       const dir = button.textContent.includes("⬆️") ? "UP" :
                   button.textContent.includes("⬇️") ? "DOWN" :
                   button.textContent.includes("⬅️") ? "LEFT" : "RIGHT";
