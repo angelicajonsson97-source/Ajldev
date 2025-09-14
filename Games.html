@@ -11,15 +11,18 @@
   <header>
     <h1>🎮 Min Spelportal</h1>
   </header>
-<nav class="navbar">
-  <div class="nav-brand"></div>
-  <button class="hamburger" onclick="toggleMenu()">☰</button>
-  <ul class="nav-links" id="nav-menu">
-    <li><a href="index.html">Startsida</a></li>
-    <li><a href="cv.html">CV</a></li>
-    <li><a href="Games.html">Spelportal</a></li>
-  </ul>
-</nav>
+
+  <!-- Navigationsmeny -->
+  <nav class="navbar">
+    <div class="nav-brand"></div>
+    <button class="hamburger" onclick="toggleMenu()">☰</button>
+    <ul class="nav-links" id="nav-menu">
+      <li><a href="index.html">Startsida</a></li>
+      <li><a href="cv.html">CV</a></li>
+      <li><a href="games.html">Spelportal</a></li>
+    </ul>
+  </nav>
+
   <hr>
 
   <section id="game-portal">
@@ -40,7 +43,7 @@
         <section id="game-area" style="display:none;">
           <p id="timer">Tid: 0 sek</p>
           <p id="feedback">Gissa ett nummer!</p>
-          <input type="number" id="guess-input" placeholder="Skriv din gissning här">
+          <input type="number" id="guess-input" placeholder="Skriv din gissning här" aria-label="Gissningsfält">
           <button id="submit-guess">Gissa</button>
           <p id="attempts">Antal försök: 0</p>
           <ul id="guess-history"></ul>
@@ -50,20 +53,20 @@
 
     <!-- 🟨 Spel 2 – Snake -->
     <div class="game-column">
-      <div class="game-box" id="kommande-spel">
+      <div class="game-box" id="snake-spelet">
         <h2>Snake</h2>
-           <canvas id="snake-canvas" width="300" height="300" tabindex="0"></canvas>
+        <canvas id="snake-canvas" width="300" height="300" tabindex="0" autofocus></canvas>
         <button id="start-snake">Starta Snake</button>
         <p id="snake-score">Poäng: 0</p>
-        <p>🕹️ Använd piltangenterna eller svep för att styra ormen!</p>
+        <p>🕹️ Använd piltangenterna eller tryck på knapparna nedan!</p>
 
         <!-- Touch-styrning för mobil -->
         <div id="touch-controls">
-          <button onclick="setDirection('UP')">⬆️</button>
+          <button ontouchstart="setDirection('UP')" aria-label="Upp">⬆️</button>
           <div>
-            <button onclick="setDirection('LEFT')">⬅️</button>
-            <button onclick="setDirection('DOWN')">⬇️</button>
-            <button onclick="setDirection('RIGHT')">➡️</button>
+            <button ontouchstart="setDirection('LEFT')" aria-label="Vänster">⬅️</button>
+            <button ontouchstart="setDirection('DOWN')" aria-label="Ner">⬇️</button>
+            <button ontouchstart="setDirection('RIGHT')" aria-label="Höger">➡️</button>
           </div>
         </div>
       </div>
@@ -78,15 +81,14 @@
     </div>
   </section>
 
+  <!-- JavaScript-filer -->
   <script src="script.gissa.js"></script>
   <script src="script.snake.js"></script>
   <script src="script.meny.js"></script>
+
   <footer>
     <hr>
     <p>&copy; 2025 Angelica Jonsson Landström</p>
-  </footer>  
+  </footer>
 </body>
-
 </html>
-
-
