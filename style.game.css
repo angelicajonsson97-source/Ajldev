@@ -12,27 +12,27 @@ h1, h2 {
   text-align: center;
 }
 
-/* Spelportal-layout: tre kolumner bredvid varandra */
+/* Spelportal-layout: tre kolumner per rad */
 #game-portal {
   display: flex;
-  flex-direction: row;
+  flex-wrap: wrap;
   gap: 20px;
   justify-content: center;
-  flex-wrap: wrap;
   padding: 20px;
   max-width: 1200px;
   margin: 0 auto;
 }
 
-/* Varje kolumn */
+/* Varje spelkolumn */
 .game-column {
-  flex: 1 1 300px;
-  max-width: 350px;
+  flex: 0 0 calc(33.333% - 20px);
+  max-width: calc(33.333% - 20px);
+  box-sizing: border-box;
   display: flex;
   justify-content: center;
 }
 
-/* Spelboxar med din färgpalett */
+/* Spelboxar med färgpalett */
 .game-box {
   background-color: #f6efe7;
   border-radius: 10px;
@@ -42,7 +42,7 @@ h1, h2 {
   transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
-/* Pop-effekt vid hover */
+/* Hover-effekt */
 .game-box:hover {
   transform: translateY(-5px);
   box-shadow: 0 8px 20px rgba(0,0,0,0.2);
@@ -65,7 +65,7 @@ button:hover {
 }
 
 /* Inputfält */
-input[type="number"] {
+input[type="number"], select {
   padding: 8px;
   border: 1px solid #ccc;
   border-radius: 6px;
@@ -73,15 +73,7 @@ input[type="number"] {
   margin-top: 10px;
 }
 
-/* Responsivt: stapla på mindre skärmar */
-@media (max-width: 900px) {
-  #game-portal {
-    flex-direction: column;
-    align-items: center;
-  }
-}
-
-/* Snake canvas – förbättrad */
+/* Snake canvas */
 #snake-canvas {
   border: 2px solid #1b3b2f;
   background-color: #f6efe7;
@@ -93,7 +85,7 @@ input[type="number"] {
   box-shadow: 0 4px 10px rgba(0,0,0,0.1);
 }
 
-/* Poängvisning */
+/* Snake poäng */
 #snake-score {
   font-weight: bold;
   text-align: center;
@@ -102,7 +94,15 @@ input[type="number"] {
   color: #5c4033;
 }
 
-/* Touch-styrning – förbättrad layout */
+#snake-highscore {
+  font-weight: bold;
+  text-align: center;
+  margin-top: 5px;
+  font-size: 16px;
+  color: #5c4033;
+}
+
+/* Touch-styrning */
 #touch-controls {
   display: flex;
   flex-direction: column;
@@ -116,7 +116,6 @@ input[type="number"] {
   gap: 10px;
 }
 
-/* Knappar för touch-styrning – förbättrad stil */
 #touch-controls button {
   background-color: #5c4033;
   color: #f6efe7;
@@ -140,6 +139,77 @@ input[type="number"] {
   }
 }
 
+/* Färgklickaren spelstil */
+#fargklickaren {
+  text-align: center;
+}
+
+#color-instruction {
+  font-weight: bold;
+  margin-bottom: 10px;
+}
+
+#color-buttons {
+  display: flex;
+  justify-content: center;
+  gap: 15px;
+  margin: 15px 0;
+}
+
+.color-btn {
+  width: 60px;
+  height: 60px;
+  border: none;
+  border-radius: 50%;
+  cursor: pointer;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.2);
+}
+
+#color-feedback {
+  font-weight: bold;
+  margin-top: 10px;
+  min-height: 24px;
+}
+
+#color-score,
+#color-highscore {
+  font-weight: bold;
+  text-align: center;
+  margin-top: 10px;
+  font-size: 18px;
+  color: #5c4033;
+}
+
+#color-timer,
+#color-highscore {
+  font-weight: bold;
+  margin-top: 10px;
+}
+.bonus-animation {
+  position: absolute;
+  font-weight: bold;
+  color: #1b3b2f;
+  font-size: 20px;
+  animation: flyUp 0.8s ease-out forwards;
+  pointer-events: none;
+  z-index: 10;
+}
+
+@keyframes flyUp {
+  0% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+  100% {
+    opacity: 0;
+    transform: translateY(-40px);
+  }
+}
+
+#color-buttons {
+  position: relative; /* behövs för att placera animationen rätt */
+}
+
 /* Navigationsmeny */
 .navbar {
   background-color: #1b3b2f;
@@ -161,7 +231,7 @@ input[type="number"] {
   color: #f6efe7;
 }
 
-/* Vågräta menyval */
+/*  Menylänkar */
 .nav-links {
   list-style: none;
   display: flex;
@@ -180,7 +250,7 @@ input[type="number"] {
   text-decoration: underline;
 }
 
-/* Hamburger-knapp – dold på desktop */
+/*  Hamburger-knapp */
 .hamburger {
   display: none;
   font-size: 24px;
@@ -191,8 +261,13 @@ input[type="number"] {
   margin-left: auto;
 }
 
-/* Mobilanpassning */
-@media (max-width: 768px) {
+/*  Mobilanpassning */
+@media (max-width: 900px) {
+  .game-column {
+    flex: 1 1 100%;
+    max-width: 100%;
+  }
+
   .navbar {
     justify-content: space-between;
   }
