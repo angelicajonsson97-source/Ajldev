@@ -56,7 +56,7 @@ function draw() {
     ctx.strokeRect(snake[i].x, snake[i].y, box, box);
   }
 
-  ctx.fillStyle = "#1b3b2f";
+  ctx.fillStyle = "#d21919ff";
   ctx.beginPath();
   ctx.arc(food.x + box / 2, food.y + box / 2, box / 2.5, 0, Math.PI * 2);
   ctx.fill();
@@ -162,3 +162,4 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   });
 });
+
