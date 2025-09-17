@@ -6,38 +6,45 @@
 <title>Angelica Jonsson Landström</title>
 <link rel="stylesheet" href="style.css">
 </head>
+
 <body>
 <h1>Angelica Jonsson Landström</h1>
 <h2>Fullstack-Utvecklare</h2>
-<nav class="navbar">
-  <section class="nav-brand"></section>
-  <button class="hamburger" onclick="toggleMenu()">☰</button>
-  <ul class="nav-links" id="nav-menu">
-    <li><a href="index.html">Startsida</a></li>
-    <li><a href="cv.html">CV</a></li>
-    <li><a href="Games.html">Spelportal</a></li>
-  </ul>
-</nav>
-<hr>
+
+<!-- Meny -->
+<header id="meny-container"></header>
+
+<script>
+  fetch('meny.html')
+    .then(response => response.text())
+    .then(data => {
+      document.getElementById('meny-container').innerHTML = data;
+    });
+</script>
+
 <script src="script.meny.js"></script>
 
 <!-- Flexcontainer för två kolumner -->
-<section class="main-content">
+<main class="main-content">
 
     <!-- Vänsterkolumn: kontaktinfo + sticky bild -->
     <section class="contact">
          <img src="jag.jpg.JPEG" alt="Bild på mig">
          <h4>Kontaktinformation!</h4>
-        <p>
-            Telefonnummer: <br><a href="tel:+46730987720">073-098 77 20</a><br>
-            E-post:<br> <a href="mailto:angelica.jonsson24@gmail.com">angelica.jonsson24@gmail.com</a><br>
-            LinkedIn:<br> <a href="https://www.linkedin.com/in/angelica-jonsson-landstr%C3%B6m-88482b1b5/">angelica-jonsson-landstrom</a><br>
-            CV: <br><a href="cv.html">Länk till CV</a>
-        </p>
+        <ul>
+            <li>Telefonnummer: <a href="tel:+46730987720">073-098 77 20</a></li>
+            <br>
+            <li>E-post: <a href="mailto:angelica.jonsson24@gmail.com">angelica.jonsson24@gmail.com</a></li>
+            <br>
+            <li>LinkedIn: <a href="https://www.linkedin.com/in/angelica-jonsson-landstr%C3%B6m-88482b1b5/">angelica-jonsson-landstrom</a></li>
+            <br>
+            <li>CV: <a href="cv.html">Länk till CV</a></li>
+        </ul>
     </section>
 
     <!-- Högerkolumn: text om dig själv -->
     <section class="about">
+        <h2>Om mig</h2>
         <p>
             Jag heter Angelica Jonsson Landström, är 28 år och bor i Stockholm. Just nu studerar jag för att bli fullstack-utvecklare och brinner för att skapa användarvänliga och snygga webbapplikationer. Jag söker en lia plats för att få praktisk erfarenhet och utvecklas inom programering.
             <br><br>
@@ -49,7 +56,7 @@
         </p>
     </section>
 
-</section>
+</main>
 <hr>
 <p>&copy; 2025 Angelica Jonsson Landström</p>
 </body>
