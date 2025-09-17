@@ -8,16 +8,22 @@
 <body>
   <h1>Angelica Jonsson Landström</h1>
   <h2>Fullstack-utvecklare</h2>
-  <nav class="navbar">
-  <section class="nav-brand"></section>
-  <button class="hamburger" onclick="toggleMenu()">☰</button>
-  <ul class="nav-links" id="nav-menu">
-    <li><a href="index.html">Startsida</a></li>
-    <li><a href="cv.html">CV</a></li>
-    <li><a href="Games.html">Spelportal</a></li>
-  </ul>
-</nav>
-  <hr> 
+
+  <!-- Meny -->
+<header id="meny-container"></header>
+
+<script>
+  fetch('meny.html')
+    .then(response => response.text())
+    .then(data => {
+      document.getElementById('meny-container').innerHTML = data;
+    });
+</script>
+
+<script src="script.meny.js"></script>
+
+
+  <!-- Flexcontainer för två kolumner -->
   <section class="main-content">
 
     <!-- Vänsterkolumn: kontaktinfo + sticky bild -->
@@ -89,9 +95,9 @@ Jag söker en LIA-plats där jag får växa som utvecklare, bidra med min tidiga
   </section>
 
  <script src="script.meny.js"></script>
- </section>
+  </section>
   <hr>
   <p>&copy; 2025 Angelica Jonsson Landström</p>
+
 </body>
 </html> 
-
