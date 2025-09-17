@@ -12,18 +12,18 @@
     <h1>Spelportal</h1>
   </header>
 
-  <!-- Navigationsmeny -->
-  <nav class="navbar">
-    <section class="nav-brand"></section>
-    <button class="hamburger" onclick="toggleMenu()">☰</button>
-    <ul class="nav-links" id="nav-menu">
-      <li><a href="index.html">Startsida</a></li>
-      <li><a href="cv.html">CV</a></li>
-      <li><a href="games.html">Spelportal</a></li>
-    </ul>
-  </nav>
+  <!-- Meny -->
+ <header id="meny-container"></header>
 
-  <hr>
+<script>
+  fetch('meny.html')
+    .then(response => response.text())
+    .then(data => {
+      document.getElementById('meny-container').innerHTML = data;
+    });
+</script>
+
+<script src="script.meny.js"></script>
 
   <section id="game-portal">
     <!-- Spel 1 – Gissa Numret -->
