@@ -1,6 +1,6 @@
 # Ajldev
 webb
-# 👩‍💻 Angelica Jonsson Landström
+# Angelica Jonsson Landström
 
 Hej! Jag heter Angelica Jonsson Landström, är 28 år och bor i Stockholm. Just nu studerar jag till frontend utvecklare samt fullstack-utvecklare.
 
