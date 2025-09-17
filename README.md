@@ -10,5 +10,5 @@ Jag gillar att:
 - Att lära mig nya tekniker och ramverk
 - Att jobba i team och bidra med idéer
 
-På fritiden gillar jag att träna fotboll och andra bollsporter, spela tv-spel och laga mat. Jag tror på balans mellan kreativt arbete och avkopplande aktiviteter – det gör mig både gladare och mer produktiv.
+På fritiden gillar jag att träna fotboll och andra bollsporter, spela tv-spel och laga mat.
 
