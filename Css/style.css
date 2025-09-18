@@ -92,6 +92,9 @@ a:hover {
 
     max-width: 600px;   /* gör att boxen inte blir för bred */
 }
+.about p {
+  margin-bottom: 20px;
+}
 
 /* Allmän text */
 p {
