@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="sv">
+<head>
+  <meta charset="UTF-8">
+  <title>CV – Angelica Jonsson Landström</title>
+  <link rel="stylesheet" href="Css/style.1.css">
+</head>
+<body>
+  <h1>Angelica Jonsson Landström</h1>
+  <h2>Fullstack-utvecklare</h2>
+
+  <!-- Meny -->
+<header id="meny-container"></header>
+
+<script>
+  fetch('meny.html')
+    .then(response => response.text())
+    .then(data => {
+      document.getElementById('meny-container').innerHTML = data;
+    });
+</script>
+
+<script src="Script/script.meny.js"></script>
+
+
+  <!-- Flexcontainer för två kolumner -->
+  <section class="main-content">
+
+    <!-- Vänsterkolumn: kontaktinfo + sticky bild -->
+   <section class="contact">
+  <img src="images/jag.jpg.JPEG" alt="Bild på mig">
+  <h4>Kontaktinformation!</h4>
+  <ul>
+    <li>
+      <span class="label">Telefonnummer:</span>
+      <a href="tel:+46730987720">073-098 77 20</a>
+    </li>
+    <li>
+      <span class="label">E-post:</span>
+      <a href="mailto:angelica.jonsson24@gmail.com">angelica.jonsson24@gmail.com</a>
+    </li>
+    <li>
+      <span class="label">LinkedIn:</span>
+      <a href="https://www.linkedin.com/in/angelica-jonsson-landstr%C3%B6m-88482b1b5/">angelica-jonsson-landstrom</a>
+    </li>
+  </ul>
+</section>
+
+    <!-- Högerkolumn: text -->
+  <section class="about">
+    <h2>Profil</h2>
+    <p>Jag är en nyfiken och målinriktad blivande fullstack-utvecklare med bakgrund inom digital marknadsföring. 
+Efter några år av att jobba med SEO, kampanjer och analys insåg jag att det jag verkligen brinner för är att bygga själva plattformarna – inte bara marknadsföra dem.
+Nu studerar jag till fullstack-utvecklare och älskar att kombinera min kreativa sida med logiskt tänkande och problemlösning.
+Jag söker en LIA-plats där jag får växa som utvecklare, bidra med min tidigare erfarenhet och fortsätta lära mig nya tekniker varje dag.
+    </p>
+
+    <h2>Erfarenhet</h2>
+    <ul>
+      <li><strong>Marknadsförare – Vardagsfrid AB</strong> (2022–2025)<br>
+        SEO, content marketing, HubSpot, Ahrefs, Google Analytics, Google Ads, Meta Ads, e-postmarknadsföring, copywriting.
+      </li>
+      <li><strong>Badvärd – Navet, Umeå</strong> (2018–2022)<br>
+        Simskola, vattenträning, kundservice, kassahantering, städning, reception.
+      </li>
+      <li><strong>Kundsupport – webhelp, Umeå</strong> (2018)<br>
+       Gav teknisk support och kundservice inom områdena tv, bredband och telefoni.
+      </li>
+      <li><strong>Kassa & kundtjänst – Media Markt, Umeå</strong> (2017)<br>
+       Hanterade kassaarbete, returer, medlemskapsfrågor och försäkringsärenden.
+      </li>
+    </ul>
+
+    <h2>Utbildning</h2>
+    <ul>
+      <li><strong>Fullstack-utvecklare</strong> – Företags universitetet (2025–pågående)</li>
+       <li><strong>Frontend-utvecklare</strong> – KYH(2025–pågående)</li>
+      <li><strong>Marketing Automation Specialist</strong> – Yrkesakademin (2020–2022)</li>
+      <li><strong>Simlärarutbildning</strong> – Svenska Simförbundet (2016)</li>
+    </ul>
+
+    <h2>Certifieringar</h2>
+    <ul>
+      <li>Google Analytics</li>
+      <li>Google Ads</li>
+      <li>Meta Ads</li>
+      <li>HubSpot Marketing Software</li>
+    </ul>
+
+    <h2>Språk</h2>
+    <ul>
+      <li>Svenska – Modersmål</li>
+      <li>Engelska – Flytande</li>
+    </ul>
+
+    <h2>Verktyg & Tekniker</h2>
+    <ul>
+      <li>HTML, CSS, JavaScript</li>
+      <li>React, Node.js</li>
+      <li>Git, GitHub</li>
+      <li>Figma, Canva</li>
+      <li>HubSpot, Google Analytics, Ahrefs</li>
+    </ul>
+    </p>
+  </section>
+
+  </section>
+  <hr>
+  <p>&copy; 2025 Angelica Jonsson Landström</p>
+
+</body>
+</html> 
