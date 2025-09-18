@@ -1,64 +1,84 @@
-/* Grundinställningar */
+/* -------------------- */
+/* Färgvariabler        */
+/* -------------------- */
+:root {
+  --bakgrund: #e9dcc9;
+  --text: #1c1b1b;
+  --accent: #1b3b2f;
+  --länk: #5c4033;
+  --länk-hover: #3e5c4b;
+  --sektion-bg: #f6efe7;
+  --skugga: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+/* -------------------- */
+/* Grundinställningar   */
+/* -------------------- */
 body {
-    font-family: Arial, sans-serif;
-    background-color: #e9dcc9;
-    color: #1c1b1b;
-    margin: 20px;
-
+  font-family: Arial, sans-serif;
+  background-color: var(--bakgrund);
+  color: var(--text);
+  margin: 20px;
 }
 
-/* Rubriker */
-h1, h2 {
-    color: #1b3b2f;
-    text-align: center;
+/* -------------------- */
+/* Rubriker             */
+/* -------------------- */
+h1, h2, h3 {
+  color: var(--accent);
+  text-align: center;
 }
 
-h3#greeting {
-    color: #1b3b2f;
-    text-align: center;
-    margin-bottom: 20px;
-}
-
-/* Länk-styling */
+/* -------------------- */
+/* Länkar               */
+/* -------------------- */
 a {
-    color: #5c4033;
-    text-decoration: none;
-    font-weight: bold;
+  color: var(--länk);
+  text-decoration: none;
+  font-weight: bold;
 }
 
 a:hover {
-    color: #3e5c4b;
-    text-decoration: underline;
+  color: var(--länk-hover);
+  text-decoration: underline;
 }
 
-/* Flexcontainer för två kolumner */
+/* -------------------- */
+/* Allmän text          */
+/* -------------------- */
+p {
+  line-height: 1.6;
+  margin-bottom: 20px;
+}
+
+/* -------------------- */
+/* Layout – Flexbox     */
+/* -------------------- */
 .main-content {
-    display: flex;
-    gap: 20px;
-    align-items: flex-start;
-    flex-wrap: wrap;
-
-    max-width: 1000px;   /* bestämmer hur bred hela flexcontainer får vara */
-    margin: 0 auto;       /* centrerar hela flexcontainer på sidan */
-    padding: 0 20px;      /* lite luft från kanterna */
+  display: flex;
+  gap: 20px;
+  align-items: flex-start;
+  flex-wrap: wrap;
+  max-width: 1000px;
+  margin: 0 auto;
+  padding: 0 20px;
 }
 
-/* Vänster: kontaktinfo + sticky bild */
+/* -------------------- */
+/* Kontaktsektion       */
+/* -------------------- */
 .contact {
-    flex: 1;
-    text-align: left;
-    margin-left: 50px;   /* flyttar hela innehållet lite inåt från vänsterkanten */
-
-
+  flex: 1;
+  text-align: left;
+  margin-left: 50px;
 }
 
 .contact img {
-    width: 100%;
-    max-width: 200px;
-    border-radius: 10px;
-    margin-top: 20px;
-    margin-left: 50px;   /* flyttar hela innehållet lite inåt från vänsterkanten */
-    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+  width: 100%;
+  max-width: 200px;
+  border-radius: 10px;
+  margin-top: 20px;
+  box-shadow: var(--skugga);
 }
 
 .contact ul {
@@ -78,35 +98,28 @@ a:hover {
   color: #333;
 }
 
-
-/* Höger: text om dig själv */
+/* -------------------- */
+/* Om mig-sektion       */
+/* -------------------- */
 .about {
-    flex: 2;
-    text-align: left;
-    background-color: #f6efe7;
-    margin-top: 20px;
-    padding: 20px;
-    border-radius: 10px;
-    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
-    line-height: 1.6;
-
-    max-width: 600px;   /* gör att boxen inte blir för bred */
-}
-.about p {
-  margin-bottom: 20px;
+  flex: 2;
+  text-align: left;
+  background-color: var(--sektion-bg);
+  margin-top: 20px;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: var(--skugga);
+  max-width: 600px;
 }
 
-/* Allmän text */
-p {
-    line-height: 1.6;
-}
-
-/* Navigationsmeny */
+/* -------------------- */
+/* Navigationsmeny      */
+/* -------------------- */
 .navbar {
-  background-color: #1b3b2f;
-  color: #f6efe7;
+  background-color: var(--accent);
+  color: var(--sektion-bg);
   display: flex;
-  flex-direction: column; /* Centrerar hela menyn */
+  flex-direction: column;
   align-items: center;
   padding: 12px 20px;
   position: sticky;
@@ -119,10 +132,9 @@ p {
   font-weight: bold;
   font-size: 20px;
   margin-right: auto;
-  color: #f6efe7;
+  color: var(--sektion-bg);
 }
 
-/* Vågräta menyval */
 .nav-links {
   list-style: none;
   display: flex;
@@ -132,7 +144,7 @@ p {
 }
 
 .nav-links li a {
-  color: #f6efe7;
+  color: var(--sektion-bg);
   text-decoration: none;
   font-weight: bold;
 }
@@ -141,18 +153,22 @@ p {
   text-decoration: underline;
 }
 
-/* Hamburger-knapp – dold på desktop */
+/* -------------------- */
+/* Hamburger-knapp      */
+/* -------------------- */
 .hamburger {
-  display: none;
+  display: none; /* Dold som standard (desktop) */
   font-size: 24px;
   background: none;
   border: none;
-  color: #f6efe7;
+  color: var(--sektion-bg);
   cursor: pointer;
   margin-left: auto;
 }
 
-/* Mobilanpassning */
+/* -------------------- */
+/* Mobilanpassning      */
+/* -------------------- */
 @media (max-width: 768px) {
   .navbar {
     justify-content: space-between;
@@ -161,7 +177,7 @@ p {
   .nav-links {
     display: none;
     flex-direction: column;
-    background-color: #1b3b2f;
+    background-color: var(--accent);
     position: absolute;
     top: 60px;
     right: 20px;
@@ -175,7 +191,7 @@ p {
   }
 
   .hamburger {
-    display: block;
+    display: block; /* Visas endast på mobil */
   }
 
   .nav-brand {
