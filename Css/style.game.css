@@ -1,29 +1,18 @@
-/* Grundinställningar */
-body {
-  font-family: Arial, sans-serif;
-  background-color: #e9dcc9;
-  color: #1c1b1b;
-  margin: 20px;
-}
+/* -------------------- */
+/* Spelportal-layout    */
+/* -------------------- */
 
-/* Rubriker */
-h1, h2 {
-  color: #1b3b2f;
-  text-align: center;
-}
-
-/* Spelportal-layout: tre kolumner per rad */
-#game-portal {
+.games-page #game-portal {
   display: flex;
   flex-wrap: wrap;
   gap: 20px;
   justify-content: center;
-  padding: 20px;
+  padding: 40px 20px;
   max-width: 1200px;
   margin: 0 auto;
 }
 
-/* Varje spelkolumn */
+/* Spelkolumner */
 .game-column {
   flex: 0 0 calc(33.333% - 20px);
   max-width: calc(33.333% - 20px);
@@ -32,48 +21,87 @@ h1, h2 {
   justify-content: center;
 }
 
-/* Spelboxar med färgpalett */
+/* Spelboxar */
 .game-box {
   background-color: #f6efe7;
   border-radius: 10px;
-  padding: 20px;
+  padding: 24px;
   width: 100%;
-  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
   transition: transform 0.3s ease, box-shadow 0.3s ease;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 12px;
 }
 
-/* Hover-effekt */
 .game-box:hover {
-  transform: translateY(-5px);
-  box-shadow: 0 8px 20px rgba(0,0,0,0.2);
+  transform: scale(1.03);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
 }
 
-/* Knappar */
-button {
+/* Rubriker */
+.game-box h2 {
+  font-size: 22px;
+  color: #1b3b2f;
+  margin-bottom: 10px;
+}
+
+/* -------------------- */
+/* Knappar              */
+/* -------------------- */
+
+.game-button {
   background-color: #5c4033;
   color: #f6efe7;
   border: none;
-  padding: 10px 16px;
-  border-radius: 8px;
-  cursor: pointer;
+  padding: 14px 24px;
+  border-radius: 10px;
+  font-size: 18px;
   font-weight: bold;
-  margin-top: 10px;
+  cursor: pointer;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  transition: background-color 0.3s ease, transform 0.2s ease;
 }
 
-button:hover {
+.game-button:hover {
   background-color: #3e5c4b;
+  transform: scale(1.05);
 }
 
-/* Inputfält */
-input[type="number"], select {
+/* -------------------- */
+/* Gissa Numret         */
+/* -------------------- */
+
+#game-settings select {
   padding: 8px;
-  border: 1px solid #ccc;
   border-radius: 6px;
-  width: 100%;
+  border: 1px solid #ccc;
   margin-top: 10px;
+  width: 100%;
+  max-width: 200px;
 }
 
-/* Snake canvas */
+#game-area input[type="number"] {
+  padding: 10px;
+  border-radius: 6px;
+  border: 1px solid #ccc;
+  width: 100%;
+  max-width: 200px;
+}
+
+#game-area p,
+#game-area ul {
+  margin-top: 10px;
+  font-weight: bold;
+  color: #5c4033;
+}
+
+/* -------------------- */
+/* Snake-spel           */
+/* -------------------- */
+
 #snake-canvas {
   border: 2px solid #1b3b2f;
   background-color: #f6efe7;
@@ -82,27 +110,20 @@ input[type="number"], select {
   max-width: 100%;
   height: auto;
   border-radius: 8px;
-  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
 }
 
-/* Snake poäng */
-#snake-score {
+#snake-score,
+#snake-highscore {
   font-weight: bold;
-  text-align: center;
-  margin-top: 10px;
   font-size: 18px;
   color: #5c4033;
 }
 
-#snake-highscore {
-  font-weight: bold;
-  text-align: center;
-  margin-top: 5px;
-  font-size: 16px;
-  color: #5c4033;
-}
+/* -------------------- */
+/* Touch-styrning       */
+/* -------------------- */
 
-/* Touch-styrning */
 #touch-controls {
   display: flex;
   flex-direction: column;
@@ -124,7 +145,7 @@ input[type="number"], select {
   font-size: 24px;
   border-radius: 8px;
   cursor: pointer;
-  box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
   touch-action: manipulation;
 }
 
@@ -132,14 +153,16 @@ input[type="number"], select {
   background-color: #3e5c4b;
 }
 
-/* Dölj touch-knappar på desktop */
 @media (min-width: 768px) {
   #touch-controls {
     display: none;
   }
 }
 
-/* Färgklickaren spelstil */
+/* -------------------- */
+/* Färgklickaren        */
+/* -------------------- */
+
 #fargklickaren {
   text-align: center;
 }
@@ -150,18 +173,12 @@ input[type="number"], select {
 }
 
 #color-buttons {
-  display: flex;
-  justify-content: center;
-  gap: 15px;
-  margin: 15px 0;
-}
-#color-buttons {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(60px, 1fr));
+  grid-template-columns: repeat(4, minmax(60px, 1fr));
   gap: 15px;
   justify-content: center;
   margin: 15px 0;
-  position: relative;
+  position: relative; /* behåll om du använder bonus-animationer */
 }
 
 .color-btn {
@@ -170,7 +187,8 @@ input[type="number"], select {
   border: none;
   border-radius: 50%;
   cursor: pointer;
-  box-shadow: 0 2px 6px rgba(0,0,0,0.2);
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
+
 }
 
 #color-feedback {
@@ -180,19 +198,14 @@ input[type="number"], select {
 }
 
 #color-score,
-#color-highscore {
+#color-highscore,
+#color-timer {
   font-weight: bold;
-  text-align: center;
-  margin-top: 10px;
-  font-size: 18px;    
+  font-size: 18px;
   color: #5c4033;
 }
 
-#color-timer,
-#color-highscore { 
-  font-weight: bold;
-  margin-top: 10px;
-}
+/* Bonusanimation */
 .bonus-animation {
   position: absolute;
   font-weight: bold;
@@ -214,11 +227,10 @@ input[type="number"], select {
   }
 }
 
-#color-buttons {
-  position: relative; /* behövs för att placera animationen rätt */
-}
+/* -------------------- */
+/* Navigationsmeny      */
+/* -------------------- */
 
-/* Navigationsmeny */
 .navbar {
   background-color: #1b3b2f;
   color: #f6efe7;
@@ -239,7 +251,6 @@ input[type="number"], select {
   color: #f6efe7;
 }
 
-/*  Menylänkar */
 .nav-links {
   list-style: none;
   display: flex;
@@ -258,7 +269,6 @@ input[type="number"], select {
   text-decoration: underline;
 }
 
-/*  Hamburger-knapp */
 .hamburger {
   display: none;
   font-size: 24px;
@@ -269,7 +279,10 @@ input[type="number"], select {
   margin-left: auto;
 }
 
-/*  Mobilanpassning */
+/* -------------------- */
+/* Mobilanpassning      */
+/* -------------------- */
+
 @media (max-width: 900px) {
   .game-column {
     flex: 1 1 100%;
@@ -302,5 +315,13 @@ input[type="number"], select {
 
   .nav-brand {
     margin-right: 0;
+  }
+
+  #color-buttons {
+    grid-template-columns: repeat(auto-fit, minmax(50px, 1fr));
+  }
+
+  .game-box {
+    padding: 20px;
   }
 }
