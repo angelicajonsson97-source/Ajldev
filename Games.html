@@ -10,7 +10,8 @@
 
 <body class="games-page">
   <header>
-    <h1>Spelportal</h1>
+    <h1>Angelica Jonsson Landström</h1>
+    <h2>Spelportal</h2>
   </header>
 
   <!-- Meny -->
@@ -30,12 +31,14 @@
     <section class="game-column">
       <section class="game-box" id="gissa-numret">
         <h2>Gissa Numret</h2>
-        <label for="difficulty">Svårighetsgrad:</label>
-        <select id="difficulty" aria-label="Välj svårighetsgrad">
-          <option value="50">Lätt 1–50</option>
-          <option value="100">Medel 1–100</option>
-          <option value="500">Svår 1–500</option>
-        </select>
+        <section class="game-settings">
+          <label for="difficulty">Svårighetsgrad:</label>
+          <select id="difficulty" aria-label="Välj svårighetsgrad">
+            <option value="50">Lätt 1–50</option>
+            <option value="100">Medel 1–100</option>
+            <option value="500">Svår 1–500</option>
+          </select>
+        </section>
         <button id="start-game" class="game-button">Starta</button>
 
         <section id="game-area" style="display:none;">

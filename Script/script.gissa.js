@@ -85,6 +85,7 @@ submitGuess.addEventListener("click", () => {
   guessInput.focus();
 });
 
+
 // Avsluta spelet
 function endGame() {
   clearInterval(timerInterval);
