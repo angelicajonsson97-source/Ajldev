@@ -1,0 +1,10 @@
+.projekt {
+  flex: 2;
+  text-align: left;
+  background-color: var(--sektion-bg);
+  margin-top: 20px;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: var(--skugga);
+  max-width: 600px;
+}

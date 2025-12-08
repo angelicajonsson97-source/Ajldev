@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="sv">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Angelica Jonsson Landström</title>
+<link rel="stylesheet" href="Css/style.css">
+<link rel="stylesheet" href="Css/style.projekt.css">
+</head>
+<body>
+<h1>Projekt</h1>
+
+<!-- Meny -->
+<header id="meny-container"></header>
+
+<script>
+  fetch('meny.html')
+    .then(response => response.text())
+    .then(data => {
+      document.getElementById('meny-container').innerHTML = data;
+    });
+</script>
+
+<script src="Script/script.meny.js"></script>
+<main class="main-content">
+
+    <section class="projekt">
+       
+        <p>Här lägger jag upp mina projekt när de är klara.</p>
+        <ul> 
+            <li>Solsystem - <a href="https://angelicajonsson97-source.github.io/Solsystem-Solaris/">Länk till Solsystem-Solaris</a></li>
+        </ul>
+    </section>
+
+</main>
+<hr>
+<p>&copy; 2025 Angelica Jonsson Landström</p>
+</body>
+</html>
